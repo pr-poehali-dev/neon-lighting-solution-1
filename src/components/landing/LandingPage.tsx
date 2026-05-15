@@ -1,10 +1,12 @@
 import { useEffect, useRef, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { motion, useScroll, useSpring } from 'framer-motion'
 import Section from './Section'
 import Layout from './Layout'
 import { sections } from './sections'
 
 export default function LandingPage() {
+  const navigate = useNavigate()
   const [activeSection, setActiveSection] = useState(0)
   const containerRef = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({ container: containerRef })
@@ -67,7 +69,11 @@ export default function LandingPage() {
             key={section.id}
             {...section}
             isActive={index === activeSection}
-            onButtonClick={() => handleNavClick(sections.length - 1)}
+            onButtonClick={
+              section.id === 'join'
+                ? () => navigate('/course')
+                : () => handleNavClick(sections.length - 1)
+            }
           />
         ))}
       </div>
