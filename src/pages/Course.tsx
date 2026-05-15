@@ -99,11 +99,6 @@ const faq = [
   },
 ]
 
-const auditServices = [
-  { icon: 'Crosshair', title: 'Тест на проникновение (Pentest)', text: 'Этичные хакеры попробуют вас взломать и дадут отчёт.' },
-  { icon: 'FishOff', title: 'Анализ фишинговой устойчивости', text: 'Отправим фейковое письмо сотрудникам и посмотрим, кто повёлся.' },
-  { icon: 'ClipboardCheck', title: 'Проверка соответствия 152-ФЗ и требованиям ФСТЭК', text: 'Убедимся, что ваш бизнес работает по закону.' },
-]
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -282,31 +277,25 @@ export default function Course() {
           </div>
         </section>
 
-        {/* Аудит */}
-        <section className="bg-white/5 border border-[#00FF88]/20 rounded-3xl p-8 md:p-12">
-          <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0}
-            className="text-2xl md:text-3xl font-bold mb-2">
-            Заказать аудит информационной безопасности
+        {/* Финал */}
+        <section className="text-center py-12">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={0}
+            className="text-5xl mb-6">🛡️</motion.div>
+          <motion.h2 initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={1}
+            className="text-2xl md:text-3xl font-bold mb-4">
+            Спасибо за внимание!
           </motion.h2>
-          <motion.p initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={1}
-            className="text-gray-400 mb-10">
-            Проверьте, не оставили ли вы случайно дверь в свою сеть открытой. Мы проведём:
+          <motion.p initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={2}
+            className="text-gray-400 mb-10 max-w-md mx-auto">
+            Теперь вы знаете главное. Берегите себя и своих близких в цифровом мире.
           </motion.p>
-          <div className="grid md:grid-cols-3 gap-6 mb-10">
-            {auditServices.map((s, i) => (
-              <motion.div key={i} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={i}
-                className="bg-white/5 rounded-2xl p-5">
-                <div className="w-9 h-9 rounded-xl bg-[#00FF88]/10 flex items-center justify-center mb-3">
-                  <Icon name={s.icon} size={18} className="text-[#00FF88]" />
-                </div>
-                <h3 className="font-semibold text-sm mb-1">{s.title}</h3>
-                <p className="text-gray-400 text-xs leading-relaxed">{s.text}</p>
-              </motion.div>
-            ))}
-          </div>
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} custom={3}>
-            <Button size="lg" className="bg-[#00FF88] text-black hover:bg-[#00FF88]/90 font-semibold">
-              Связаться с нами
+            <Button
+              size="lg"
+              onClick={() => navigate('/')}
+              className="bg-[#00FF88] text-black hover:bg-[#00FF88]/90 font-semibold"
+            >
+              Вернуться на главную
             </Button>
           </motion.div>
         </section>
